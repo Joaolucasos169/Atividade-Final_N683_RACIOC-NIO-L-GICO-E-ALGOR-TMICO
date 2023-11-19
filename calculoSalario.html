@@ -1,0 +1,64 @@
+<script>
+// João Lucas Oliveira da Silva - 2323862
+
+
+// Função para calcular o novo salário com base nas regras fornecidas
+function calcularNovoSalario(salario) {
+    if (salario <= 1200) {
+        return salario * 1.15;
+    } else if (salario <= 2400) {
+        return salario * 1.10;
+    } else {
+        return salario * 1.05;
+    }
+}
+
+// Função para calcular o valor de férias
+function calcularFerias(salario) {
+    return salario + salario / 3;
+}
+
+// Função para calcular o décimo terceiro
+function calcularDecimoTerceiro(salario, mesesTrabalhados) {
+    return (salario * mesesTrabalhados) / 12;
+}
+
+// Função principal
+function main() {
+    while (true) {
+        // Exibir o menu de opções
+        var opcao = prompt("Menu de opções:\n1. Novo salário\n2. Férias\n3. Décimo terceiro\n4. Sair\nDigite a opção desejada:");
+
+        // Converter a opção para um número inteiro
+        opcao = parseInt(opcao);
+
+        // Realizar a ação com base na opção escolhida
+        switch (opcao) {
+            case 1:
+                var salario = parseFloat(prompt("Digite o salário do funcionário:"));
+                var novoSalario = calcularNovoSalario(salario);
+                alert("Novo salário: R$ " + novoSalario.toFixed(2));
+                break;
+            case 2:
+                var salario = parseFloat(prompt("Digite o salário do funcionário:"));
+                var valorFerias = calcularFerias(salario);
+                alert("Valor das férias: R$ " + valorFerias.toFixed(2));
+                break;
+            case 3:
+                var salario = parseFloat(prompt("Digite o salário do funcionário:"));
+                var mesesTrabalhados = parseInt(prompt("Digite o número de meses de trabalho (até 12):"));
+                var decimoTerceiro = calcularDecimoTerceiro(salario, mesesTrabalhados);
+                alert("Valor do décimo terceiro: R$ " + decimoTerceiro.toFixed(2));
+                break;
+            case 4:
+                alert("Programa encerrado.");
+                return;
+            default:
+                alert("Opção inválida. Tente novamente.");
+        }
+    }
+}
+
+// Chamar a função principal para iniciar o programa
+main();
+</script>
